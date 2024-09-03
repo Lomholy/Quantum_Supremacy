@@ -89,9 +89,8 @@ class PlayerAi:
         if len(info) > 1:
             for name in info:
                 if name != self.team:
-                    if name == "DMSC-staff_ai":
                     # Target ships & bases
-                    if  "bases" in info[name]:
+                    if "bases" in info[name]:
                         target = 0
                         try :
                             t = info["DMSC-staff_ai"]["bases"][target]
