@@ -89,18 +89,17 @@ class PlayerAi:
         if len(info) > 1:
             for name in info:
                 if name != self.team:
+                    if name == "DMSC-staff_ai":
                     # Target ships & bases
                     if  "bases" in info[name]:
                         target = 0
-                        t = info[name]["bases"][target]
+                        try :
+                            t = info["DMSC-staff_ai"]["bases"][target]
+                        except :
+                            t = info[name]["bases"][target]
                         myinfo["target"] = [t.x, t.y]
                         break
-                if name == "DMSC-staff_ai":
-                    if  "bases" in info[name]:
-                        target = 0
-                        t = info[name]["bases"][target]
-                        myinfo["target"] = [t.x, t.y]
-                        break
+                    
 
         # Control all my vehicles
         helpers.control_vehicles(
