@@ -67,7 +67,7 @@ class PlayerAi:
             if base.mines < 2:
                 if base.crystal > base.cost("mine"):
                     base.build_mine()
-            elif self.nships[uid] > 2:
+            elif self.nships[uid] > 2 and base.mines < 4:
                 if base.crystal > base.cost("mine"):
                     base.build_mine()
             # If we have enough mines, pick something at random
