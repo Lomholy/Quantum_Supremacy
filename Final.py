@@ -12,6 +12,7 @@ def tank_ai(tank, info, game_map):
     Function to control tanks.
     """
     tank.stop()
+    tank.set_heading(tank.heading + 3)
 
 
 def ship_ai(ship, info, game_map):
@@ -71,7 +72,7 @@ class PlayerAi:
                     base.build_mine()
             # If we have enough mines, pick something at random
             else:
-                if self.nships[uid] < 5:
+                if self.nships[uid] < 4:
                     if base.crystal > base.cost("ship"):
                         ship = base.build_ship(heading=360*np.random.random())
                         self.nships[uid] += 1
