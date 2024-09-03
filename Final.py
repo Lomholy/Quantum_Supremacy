@@ -20,7 +20,7 @@ def ship_ai(ship, info, game_map):
     """
     if not ship.stopped:
         if ship.stuck:
-            if ship.get_distance(ship.owner.x, ship.owner.y) > 40:
+            if ship.get_distance(ship.owner.x, ship.owner.y) > 60:
                 ship.convert_to_base()
             else:
                 ship.set_heading(ship.heading + np.random.random() * 360.0)
