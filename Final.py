@@ -86,14 +86,20 @@ class PlayerAi:
         # Try to find an enemy target
         # If there are multiple teams in the info, find the first team that is not mine
         targets=[]
+        dmsc_name = ""
+        for name in info:
+            if "DMSC" in name:
+                dmsc_name = name
+                break
         if len(info) > 1:
             for name in info:
                 if name != self.team:
                     # Target ships & bases
                     if "bases" in info[name]:
                         target = 0
+                        
                         try :
-                            t = info["DMSC-staff_ai"]["bases"][target]
+                            t = info[dmsc_name]["bases"][target]
                         except :
                             t = info[name]["bases"][target]
                         myinfo["target"] = [t.x, t.y]
